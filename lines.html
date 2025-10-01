@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <maeves-border></maeves-border>
+    
+</body>
+<script type = "module">
+    import {} from "./src/border.js";
+    
+
+</script>
+<style>
+maeves-border {
+    --border-width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: var(--border-width);
+}
+maeves-border svg {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+path {
+    fill: pink;
+}
+</style>
+</html>

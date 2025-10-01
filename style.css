@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    --gap: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    --cols: 3;
+}
+maeves-border {
+    --border-width: 20px;
+    width: calc(100% - 2 * .65 * var(--border-width));
+    min-height: calc(100vh - 1.65 * var(--border-width));
+    position: relative;
+    display: block;
+    padding: calc(.65 * var(--border-width));
+    padding-top: var(--border-width);
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: var(--border-width); */
+}
+
+maeves-border svg {
+    position: absolute;
+    top: 0;
+}
+maeves-border .border {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+}
+maeves-border .maeves-logo {
+    cursor: pointer;
+    transition: 0.3s ease-in-out transform;
+}
+maeves-border .maeves-logo:hover {
+    transform: scale(1.05);
+}
+
+path {
+    fill: pink;
+
+}
+.page {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.bg {
+    width: 100%;
+}
+
+.menu-items {
+    display: flex;
+    /* position: absolute; */
+    top: 30%;
+    left: 10%;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: flex-start;
+    margin-top: 3em;
+}
+
+.m-item {
+    height: 3em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+.m-item:hover {
+    transform: scale(1.05);
+    
+}
+img {
+    width: 100%
+}
+
+
+
+.artworks {
+    display: flex;
+    width: 100%;
+    --gap: 1em;
+
+    gap: var(--gap);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.artwork {
+    position: relative;
+    width: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artwork p {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 0.9rem 0.9rem;
+    text-shadow: rgba(255, 255, 255, 0.697) 0px 0px 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.artwork:hover p {
+    opacity: 1;
+}
+.artwork p[title] {
+    top: 0;
+    font-size: 1.5em;
+}
+.artwork p[date] {
+    bottom: 0;
+    font-size: 1.3em;
+    font-style: italic;
+}
+.artwork img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.cv-items {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-top: 3em;
+}
+.cv-item h3 {
+    margin: 0;
+}
+.cv-item p {
+    margin: 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    body {
+        --cols: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        --cols: 1;
+    }
+}

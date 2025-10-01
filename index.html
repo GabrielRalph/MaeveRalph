@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maeve Ralph</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <maeves-border>
+        <data-element id="test">
+            <div class = "page" name = "">
+                <div class = "menu-items">
+                    <a href = "/#artist-cv"><img class = "m-item" src="./images/artist-cv.svg" alt="Artist CV Text"></a>
+                    <a href = "/#murals"><img class = "m-item" src="./images/murals.svg" alt="Murals Text"></a>
+                    <a href = "/#artworks"><img class = "m-item" src="./images/artowrks.svg" alt="Artowrks Text"></a>
+                    <a href = "/#about"><img class = "m-item" src="./images/about.svg" alt="About Text"></a>
+                    <a href = "/#contact"><img class = "m-item" src="./images/contact.svg" alt="Contact Text"></a>
+                </div>
+            </div>
+        
+            <div class = "page" name = "artworks">
+                <for-list class = "artworks" value="artworks">
+                    <div class = "artwork">
+                        <p title>{{title}}</p>
+                        <p date>{{date}}</p>
+                        <img src="./my website/images/{{images.0}}" alt="Maeve Ralph - {{title}}">
+                    </div>
+                </for-list>
+            </div>
+    
+            
+            <div class = "page" name = "murals">
+                <for-list class = "murals" value="murals">
+                    <div class = "mural">
+                        <h1>{{title}}</h1>
+                        <for-list class = "mural-images" value="images">
+                            <img src="./my website/images/{{.}}" alt="Maeve Ralph - {{title}}">
+                        </for-list>
+                    </div>
+                </for-list>
+            </div>
+
+            <div class = "page" name = "artist-cv">
+                <for-list class = "cv-items" value="cv">
+                    <div class = "cv-item">
+                        <h3>{{title}}</h3>
+                        <p>{{date}}</p>
+                    </div>
+                </for-list>
+            </div>
+
+            <div class = "page" name = "about">
+                <p>{{bio}}</p>
+            </div>
+        </data-element> 
+    </maeves-border>
+
+
+
+</body>
+
+<script type = "module">
+        import {} from "./src/data-element.js";
+        import {} from "./src/border.js";
+        import {data} from "./my website/data.js";
+        const test = document.getElementById("test");
+        test.value = data;
+
+        function updatePage() {
+            const hash = window.location.hash.substring(1); // Remove the '#' character
+            const pages = document.querySelectorAll('.page');
+            console.log(hash);
+            
+            pages.forEach(page => {
+                if (page.getAttribute('name') === hash) {
+                    page.style.display = 'block';
+                } else {
+                    page.style.display = 'none';
+                }
+            });
+        }
+        // Listen to hash changes
+        window.addEventListener('hashchange', updatePage);
+        updatePage(); // Initial call to set the correct page based on the current hash
+</script>
+</html>
